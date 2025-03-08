@@ -19,12 +19,14 @@
 *****
 **Frontend:**
 
-- `cd market_shop/client`
+- `cd market_shop/backend/client`
 
 - `npm install`
 
 - `npm start`
 
+  
+- 
 **Website:**
 - http://localhost:3000/
 
