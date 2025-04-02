@@ -24,8 +24,10 @@
 - `npm install`
 
 - `npm start`
+- npm install react-svg
+- npm install react-router-dom
+- npm install react-slick
 
-  
 **Website:**
 - http://localhost:3000/
 

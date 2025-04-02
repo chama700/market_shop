@@ -5,6 +5,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require('cors');
+const Order = require('./orderSchema');
+const ContactForm = require('./ContactForm');
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/fruitvegmarke', {
@@ -53,6 +55,40 @@ try {
 	.json({ error: 'Internal Server Error' });
 }
 });
+
+app.post('/api/checkout', async (req, res) => {
+	try {
+		res.status(201).json({
+			message: 'Address saved successfully',
+			address: req.body
+		});
+	} catch (error) {
+		console.error('Error saving address:', error);
+		res.status(500).json({
+			message: 'Internal server error',
+			error: error.message
+		});
+	}
+});
+
+app.post('/api/contact', async (req, res) => {
+	const { name, email, message } = req.body;
+
+	try {
+		const newContact = new ContactForm({
+			name,
+			email,
+			message
+		});
+
+		await newContact.save();
+		res.status(201).json({ message: 'Your message has been sent!' });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ message: 'Something went wrong. Please try again later.' });
+	}
+});
+
 
 app.listen(PORT, () => {
 console.log(

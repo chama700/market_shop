@@ -1,102 +1,71 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ProductItem from './ProductItem';
 import { itemContext } from '../context/ItemContext';
+import FilterSection from './FilterSection';
 
 const ProductList = () => {
 	const { products } = useContext(itemContext);
-	// Keep a local state for sorted products
-	const [sortedProducts, setSortedProducts] =
-		useState([...products]);
+	const [sortedProducts, setSortedProducts] = useState([...products]);
 	const [minPrice, setMinPrice] = useState(0);
 	const [maxPrice, setMaxPrice] = useState(3000);
-	// 'all' represents no type filter
 	const [selectedType, setSelectedType] = useState('all');
+	const [sortDirection, setSortDirection] = useState('lowToHigh');
 
 	useEffect(() => {
-		setSortedProducts([...products])
-	}, [products])
+		setSortedProducts([...products]);
+	}, [products]);
 
 	const handleSortByPrice = () => {
-		const sorted = [...sortedProducts]
-			.sort((a, b) => a.price - b.price);
+		const sorted = [...sortedProducts].sort((a, b) => {
+			if (sortDirection === 'lowToHigh') {
+				return a.price - b.price;
+			} else {
+				return b.price - a.price;
+			}
+		});
 		setSortedProducts(sorted);
+		setSortDirection(sortDirection === 'lowToHigh' ? 'highToLow' : 'lowToHigh');
 	};
 
 	const handleFilterByPriceRange = () => {
-		const filtered =
-			products.filter(
-				(product) =>
-					product.price >= minPrice &&
-					product.price <= maxPrice);
+		const filtered = products.filter(
+			(product) => product.price >= minPrice && product.price <= maxPrice
+		);
 		setSortedProducts(filtered);
 	};
 
 	const handleFilterByType = () => {
 		if (selectedType === 'all') {
-			// Reset the type filter
 			setSortedProducts([...products]);
 		} else {
-			const filtered =
-				products.filter(
-					(product) =>
-						product.type === selectedType);
+			const filtered = products.filter(
+				(product) => product.type === selectedType
+			);
 			setSortedProducts(filtered);
 		}
 	};
 
 	return (
-		<div className='prdt-list'>
-			<h2>Product List</h2>
-			<div className='filter-btn'>
-				<button onClick={handleSortByPrice}>
-					Sort by Price
-				</button>
-				<label>
-					Min Price:
-					<input type='number' value={minPrice}
-						onChange={
-							(e) =>
-								setMinPrice(Number(e.target.value))
-						} />
-				</label>
-				<label>
-					Max Price:
-					<input type='number' value={maxPrice}
-						onChange={
-							(e) =>
-								setMaxPrice(Number(e.target.value))
-						} />
-				</label>
-				<button onClick={() => handleFilterByPriceRange()}>
-					Filter by Price Range
-				</button>
-				<label>
-					Filter by Type:
-					<select value={selectedType}
-						onChange={
-							(e) =>
-								setSelectedType(e.target.value)
-						}>
-						<option value='all'>
-							All
-						</option>
-						<option value='Fruit'>Fruit</option>
-						<option value='Vegetable'>Vegetable</option>
-					</select>
-				</label>
+		<div className="flex space-x-6">
+			<FilterSection
+				minPrice={minPrice}
+				maxPrice={maxPrice}
+				selectedType={selectedType}
+				setMinPrice={setMinPrice}
+				setMaxPrice={setMaxPrice}
+				setSelectedType={setSelectedType}
+				handleSortByPrice={handleSortByPrice}
+				handleFilterByPriceRange={handleFilterByPriceRange}
+				handleFilterByType={handleFilterByType}
+			/>
 
-				<button onClick={handleFilterByType}>
-					Filter by Type
-				</button>
+			<div className="flex-1">
+				<ul className="grid grid-cols-4 item-card w-full">
+					{sortedProducts.map((product) => (
+						<ProductItem key={product._id} product={product} />
+					))}
+				</ul>
 			</div>
-
-			<ul className='item-card'>
-				{sortedProducts.map((product) => (
-					<ProductItem key={product._id}
-						product={product} />
-				))}
-			</ul>
-			<div className='buy-now-btn'>Buy Now</div>
 		</div>
 	);
 };
