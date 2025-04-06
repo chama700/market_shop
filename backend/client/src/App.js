@@ -10,26 +10,53 @@ import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import SuccessPage from "./components/SuccessPage";
 import Breadcrumb from "./components/Breadcrumb";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import "./App.css";
 import CustomItemContext from "./context/ItemContext";
+import AccountInfo from "./components/AccountInfo";
+import ProductDetail from "./components/ProductDetail";
 
 const App = () => {
 	return (
 		<CustomItemContext>
 			<Router>
 				<Header />
-				<div className="mx-20">
-					<Breadcrumb />
-					<Routes>
-						<Route path="/home" element={<Home />} />
-						<Route path="/fruits&vegetables" element={<ProductList />} />
-						<Route path="/mywishlist" element={<WishlistPage />} />
-						<Route path="/contact" element={<Contact />} />
-						<Route path="/checkout" element={<Checkout />} />
-						<Route path="/order-confirmation" element={<SuccessPage />} />
-						<Route path="*" element={<PageNotFound />} />
-					</Routes>
-				</div>
+				<Breadcrumb />
+				<Routes>
+					<Route path="/home" element={<Home />} />
+					<Route path="/" element={<Home />} />
+					<Route path="/fruits&vegetables" element={
+						<div className="container mx-auto">
+							<h1 className="text-3xl font-bold text-green-600 mb-6">Fruits And Vegetables</h1>
+							<ProductList /></div>
+					} />
+					<Route path="/mywishlist" element={
+						<div className="container mx-auto"><WishlistPage /></div>
+					} />
+					<Route path="/contact" element={
+						<div className="container mx-auto"><Contact /></div>
+					} />
+					<Route path="/checkout" element={
+						<div className="container mx-auto"><Checkout /></div>
+					} />
+					<Route path="/order-confirmation" element={
+						<div className="container mx-auto"><SuccessPage /></div>
+					} />
+					<Route path="*" element={
+						<div className="container mx-auto"><PageNotFound /></div>
+					} />
+					<Route path="/login" element={
+						<div className="container mx-auto"><Login /></div>
+					} />
+					<Route path="/register" element={
+						<div className="container mx-auto"><Register /></div>
+					} />
+					<Route path="/account-info" element={
+						<div className="container mx-auto"><AccountInfo /></div>
+					} />
+					<Route path="/product/:id" element={<ProductDetail />} />
+				</Routes>
 				<Footer />
 			</Router>
 		</CustomItemContext>

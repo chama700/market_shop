@@ -27,9 +27,20 @@
 - npm install react-svg
 - npm install react-router-dom
 - npm install react-slick
+- npm install bcrypt
+- npm install axios
+- npm install jsonwebtoken
+- npm install bcryptjs
 
 **Website:**
 - http://localhost:3000/
+  **Pages:**
+- newsletter : error + success + mongodb
+- contact page : error + success + mongodb
+- Product Listing Page
+- Wishlist page
+- Home page
+- not found page
 
 *****
 **Database:**

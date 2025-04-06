@@ -1,13 +1,67 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AppStore from '../assets/images/app-store.jpg'
 import Payment from '../assets/images/payment-method.png'
 import GooglePlay from '../assets/images/google-play.jpg'
+import Newsletter from "../assets/images/banner.png";
+import banner from "../assets/images/banner2.png";
+import Img from "../assets/images/img.png";
+import { useNewsletter, NewsletterForm } from './Newsletter';
 const Footer = () => {
+	const { email, setEmail, handleSubmit, status } = useNewsletter();
 	return (
 		<footer className="bg-white shadow-md mt-20">
-			<div className="footerWrapper py-6">
-				<div className="container mx-auto px-5">
-					<div className="grid grid-cols-5 gap-6">
+			{status && (
+				<div
+					className={`flex items-center justify-center px-6 py-4 mb-6 rounded-md shadow-md border container mx-auto
+			${status.type === 'success'
+						? 'bg-green-50 text-green-700 border-green-200'
+						: 'bg-red-50 text-red-700 border-red-200'
+					}`}
+				>
+					<svg
+						className={`w-5 h-5 mr-3 flex-shrink-0
+				${status.type === 'success' ? 'text-green-600' : 'text-red-600'}`}
+						fill="currentColor"
+						viewBox="0 0 20 20"
+					>
+						{status.type === 'success' ? (
+							<path
+								fillRule="evenodd"
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 10-1.414 1.414L9 13.414l4.707-4.707z"
+								clipRule="evenodd"
+							/>
+						) : (
+							<path
+								fillRule="evenodd"
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 001.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+								clipRule="evenodd"
+							/>
+						)}
+					</svg>
+					<span>{status.message}</span>
+				</div>
+			)}
+			<div className="container mx-auto relative single-hero-slider single-animation-wrap mx-20 mb-20">
+				<img src={Newsletter} alt="newsletter" className="footer-banner w-full h-auto rounded-lg"/>
+				<div className="absolute top-1/2 left-6 transform -translate-y-1/2 pl-20">
+					<h1 className="display-4 text-3xl font-bold mb-5">Stay home &amp; get your daily<br/>needs from our shop</h1>
+					<p className="mb-65 text-lg mb-8">Start You'r Daily Shopping with <span className="text-green-600 hover:underline cursor-pointer">Market Shop</span></p>
+					<div className="flex flex-column">
+						<div className="form-banner">
+							<NewsletterForm email={email} setEmail={setEmail} handleSubmit={handleSubmit} />
+						</div>
+						<div className="banner">
+							<img src={banner} alt="newsletter" className="w-full h-auto rounded-lg"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="footerWrapper py-6 border-t">
+				<div className="container mx-auto">
+					<div className="grid grid-cols-6 gap-6">
+						<div>
+							<img src={Img} className="w-full"/>
+						</div>
 						<div className="font-sm">
 							<p className="flex flex-row gap-3 mb-2 items-center">
 								<svg className="w-7 h-7" fill="#16A34A" focusable="false" aria-hidden="true"
@@ -44,7 +98,7 @@ const Footer = () => {
 							</p>
 						</div>
 						<div>
-							<h3 className="text-lg font-semibold text-gray-800">Categories</h3>
+							<h3 className="text-lg font-semibold text-green-600">Categories</h3>
 							<ul className="mt-2 space-y-2 gray-text">
 								<li><a href="/fruits&vegetables" className="hover:text-green-500">Fruits & Vegetables</a></li>
 								<li><a href="/organic" className="hover:text-green-500">Organic</a>
@@ -54,7 +108,7 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div>
-							<h3 className="text-lg font-semibold text-gray-800">Customer Service</h3>
+							<h3 className="text-lg font-semibold text-green-600">Customer Service</h3>
 							<ul className="mt-2 space-y-2 gray-text">
 								<li><a href="/contact" className="hover:text-green-500">Contact Us</a></li>
 								<li><a href="/faq" className="hover:text-green-500">FAQ</a></li>
@@ -63,7 +117,7 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div>
-							<h3 className="text-lg font-semibold text-gray-800">Company</h3>
+							<h3 className="text-lg font-semibold text-green-600">Company</h3>
 							<ul className="mt-2 space-y-2 gray-text">
 								<li><a href="/about-us" className="hover:text-green-500">About Us</a></li>
 								<li><a href="/privacy" className="hover:text-green-500">Privacy Policy</a></li>
@@ -72,7 +126,7 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div className="footer-link-widget widget-install-app col">
-							<h3 className="text-lg font-semibold text-gray-800">Install App</h3>
+							<h3 className="text-lg font-semibold text-green-600">Download app on</h3>
 							<p className="gray-text my-4">From App Store or
 								Google Play</p>
 							<div className="download-app flex flex-row">

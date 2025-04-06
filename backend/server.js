@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 const Order = require('./orderSchema');
 const ContactForm = require('./ContactForm');
+const Newsletter = require('./Newsletter');
+const authRoutes = require('./routes/auth');
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/fruitvegmarke', {
@@ -19,7 +21,8 @@ mongoose.connect('mongodb://localhost/fruitvegmarke', {
 });
 
 app.use(express.json());
-app.use(cors()); // Use the cors middleware
+app.use(cors());
+app.use('/api/auth', authRoutes);
 
 // Serve static images from the 'images' folder
 app.use('/images', express.static(path.join(__dirname, 'images')));
@@ -83,6 +86,22 @@ app.post('/api/contact', async (req, res) => {
 
 		await newContact.save();
 		res.status(201).json({ message: 'Your message has been sent!' });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ message: 'Something went wrong. Please try again later.' });
+	}
+});
+
+app.post('/api/newsletter', async (req, res) => {
+	const { email } = req.body;
+
+	try {
+		const newsletter = new Newsletter({
+			email
+		});
+
+		await newsletter.save();
+		res.status(201).json({ message: 'Your Newsletter has been sent!' });
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: 'Something went wrong. Please try again later.' });

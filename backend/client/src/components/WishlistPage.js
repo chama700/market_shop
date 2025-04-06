@@ -8,7 +8,7 @@ const WishlistPage = () => {
         removeFromWishlist(productId);
     };
     return (
-        <div className="wishlist-page p-6">
+        <div className="wishlist-page">
             <h1 className="text-3xl font-bold mb-4 text-green-600">Your Wishlist</h1>
             {wishlist.length > 0 ? (
                 <>

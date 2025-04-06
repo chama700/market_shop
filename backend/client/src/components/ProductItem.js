@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { itemContext } from '../context/ItemContext';
+import {Link} from "react-router-dom";
 
 
 const ProductItem = ({ product }) => {
@@ -17,13 +18,13 @@ const ProductItem = ({ product }) => {
 
 	return (
 		<div className="product-card">
-			<img className="product-image"
-				src={product.image}
-				alt={product.name} />
+			<Link to={`/product/${product._id}`}>
+				<img className="product-image" src={product.image} alt={product.name} />
+			</Link>
 			<div className="product-details">
-				<h3 style={{ fontWeight: "700" }}>
-					{product.name}
-				</h3>
+				<Link to={`/product/${product._id}`} className="hover:underline">
+					<h3 style={{ fontWeight: "700" }}>{product.name}</h3>
+				</Link>
 				<p style={{ fontWeight: "300" }}>
 					{product.description}
 				</p>
@@ -42,10 +43,16 @@ const ProductItem = ({ product }) => {
 					className="flex items-center text-sm text-gray-600 hover:text-red-500"
 					onClick={() => handleToggleWishlist(product)}
 				>
-					<svg className={`w-5 h-5 ${isInWishlist ? 'text-red-500' : 'text-gray-500'}`} viewBox="0 0 24 24">
-						<path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"></path>
+					<svg
+						className={`w-5 h-5 ${isInWishlist ? 'text-red-500' : 'text-gray-500'}`}
+						viewBox="0 0 24 24"
+						fill={isInWishlist ? 'currentColor' : 'text-gray-600'}
+					>
+						<path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
 					</svg>
-					<p className="ml-1">{isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}</p>
+					<p className={`ml-1 ${isInWishlist ? 'text-red-500' : 'text-gray-600'}`}>
+						{isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
+					</p>
 				</button>
 			</div>
 		</div>
