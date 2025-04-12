@@ -29,7 +29,7 @@ const ProductItem = ({ product }) => {
 					{product.description}
 				</p>
 				<p className="pt-3" style={{ fontWeight: "500" }}>
-					Price: {product.price} Rs/Kg
+					Price: {product.price} dhs/Kg
 				</p>
 				<button className="product-card-bottom flex flex-row my-3" onClick={
 					() => handleAddToCart(product)

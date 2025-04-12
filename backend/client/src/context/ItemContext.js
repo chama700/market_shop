@@ -54,9 +54,26 @@ function CustomItemContext({ children }) {
 
 	// Function to add items to cart
 	const addToCart = (product) => {
-		setCart((prevCart) => [...prevCart, product]);
-		setTotalPrice((prevTotal) => prevTotal + product.price);
-		setItemsInCart((prevItems) => prevItems + 1);
+		const { quantity = 1, price, _id } = product;
+
+		setCart((prevCart) => {
+			const existing = prevCart.find((item) => item._id === _id);
+
+			if (existing) {
+				// Si le produit est déjà dans le panier, on met à jour sa quantité
+				return prevCart.map((item) =>
+					item._id === _id
+						? { ...item, quantity: item.quantity + quantity }
+						: item
+				);
+			} else {
+				// Sinon, on l’ajoute avec sa quantité
+				return [...prevCart, { ...product }];
+			}
+		});
+
+		setTotalPrice((prevTotal) => prevTotal + price * quantity);
+		setItemsInCart((prevItems) => prevItems + quantity);
 	};
 
 	return (
