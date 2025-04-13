@@ -33,7 +33,8 @@
 - npm install bcryptjs
 
 **Website:**
-- http://localhost:3000/
+- http://localhost:3000
+  
 **Pages:**
   
 - Home page
