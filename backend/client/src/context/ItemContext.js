@@ -54,21 +54,22 @@ function CustomItemContext({ children }) {
 
 	// Function to add items to cart
 	const addToCart = (product) => {
-		const { quantity = 1, price, _id } = product;
+		const { quantity = 1, _id } = product;
+
+		// Assurer que price est bien un nombre
+		const price = Number(product.price);
 
 		setCart((prevCart) => {
 			const existing = prevCart.find((item) => item._id === _id);
 
 			if (existing) {
-				// Si le produit est déjà dans le panier, on met à jour sa quantité
 				return prevCart.map((item) =>
 					item._id === _id
 						? { ...item, quantity: item.quantity + quantity }
 						: item
 				);
 			} else {
-				// Sinon, on l’ajoute avec sa quantité
-				return [...prevCart, { ...product }];
+				return [...prevCart, { ...product, price, quantity }];
 			}
 		});
 
