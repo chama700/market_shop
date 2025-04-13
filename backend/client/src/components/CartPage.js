@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const CartPage = () => {
     const { cart, totalPrice, removeFromCart, deleteFromCart, addToCart, clearCart } = useContext(itemContext);
-
     // États pour gérer les frais de port et le pays sélectionné
     const [shippingCost, setShippingCost] = useState(0);
     const [selectedCountry, setSelectedCountry] = useState("");
@@ -41,7 +40,7 @@ const CartPage = () => {
     };
 
     // Calculer le total avec les frais de port
-    const totalWithShipping = totalPrice + shippingCost - discount;  // Appliquer la réduction au total
+    const totalWithShipping = (totalPrice || 0) + shippingCost - discount;
 
     // Fonction pour appliquer le code promo
     const handleApplyCoupon = () => {
@@ -188,7 +187,13 @@ const CartPage = () => {
                         </div>
 
                         <Link
-                            to="/checkout"
+                            to={{
+                                pathname: "/checkout",
+                            }}
+                            state={{
+                                totalPrice: totalPrice,
+                                totalWithShipping: totalWithShipping,
+                            }}
                             className="block text-center bg-green-600 hover:bg-green-700 text-white py-2 mt-4 rounded transition"
                         >
                             Proceed To CheckOut

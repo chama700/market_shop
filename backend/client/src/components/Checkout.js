@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 
 const Checkout = () => {
+    const location = useLocation();
+    const { totalPrice, totalWithShipping } = location.state || { totalPrice: 0, totalWithShipping: 0 };
+
     const [customerEmail, setCustomerEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -57,9 +60,9 @@ const Checkout = () => {
 
     return (
         <div className="checkout-container p-6">
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="grid grid-cols-3 gap-8">
                 {/* Billing Form */}
-                <div className="w-full lg:w-2/3 bg-white p-6 rounded-lg shadow-md">
+                <div className="w-full bg-white p-6 rounded-lg shadow-md col-span-2">
                     <h4 className="text-xl font-semibold mb-4">Billing Address</h4>
                     <form onSubmit={handleCheckout} className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -228,6 +231,40 @@ const Checkout = () => {
                             Place Order
                         </button>
                     </form>
+                </div>
+                <div className="bg-gray-50 p-6 rounded shadow-md h-fit">
+                    <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
+
+                    <div className="flex justify-between py-2 border-b">
+                        <span>Subtotal</span>
+                        <span>{totalPrice} dhs</span>
+                    </div>
+
+                    {/* Estimation & Shipping */}
+                    <div className="py-4 border-b">
+                        <h3 className="text-md font-medium mb-2">Estimate Shipping and Tax</h3>
+                        <p className="text-sm text-gray-600">Shipping and additional costs are calculated based on values you have entered.</p>
+                        <div className="mt-2">
+                            <input
+                                type="text"
+                                placeholder="Enter your zip/postal code"
+                                className="w-full border rounded px-3 py-2 text-sm text-gray-700"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Total */}
+                    <div className="flex justify-between py-2 border-b font-semibold text-lg">
+                        <span>Total to Pay</span>
+                        <span>{totalWithShipping} dhs</span>
+                    </div>
+
+                    <Link
+                        to="/cart"
+                        className="block text-center bg-green-600 hover:bg-green-700 text-white py-2 mt-4 rounded transition"
+                    >
+                        Cart Edit
+                    </Link>
                 </div>
             </div>
         </div>
