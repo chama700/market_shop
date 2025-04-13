@@ -5,6 +5,7 @@ import { itemContext } from "../context/ItemContext";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import otherItems from "../data/OtherItems";
 
 const ProductDetail = () => {
     const { products , addToCart } = useContext(itemContext);
@@ -13,7 +14,8 @@ const ProductDetail = () => {
     const [comment, setComment] = React.useState("");
     const { id } = useParams();
     const [quantity, setQuantity] = React.useState(1);
-    const product = products.find((p) => p._id === id);
+    const product = products.find((p) => p._id === id)||
+        otherItems.find((p) => p.id.toString() === id);;
     const {
         type,
         origine,
@@ -49,10 +51,12 @@ const ProductDetail = () => {
 
                     {/* COLUMN 1: Image + Similar Products */}
                     <div>
-                        <div className="detail-gallery mb-6">
-                            <div className="zoom-icon border rounded-lg overflow-hidden">
-                                <img className="product-image" src={product.image} alt={product.name} />
-                            </div>
+                        <div className="zoom-icon border rounded-lg overflow-hidden w-full h-96">
+                            <img
+                                className="w-full h-full object-cover"
+                                src={product.image}
+                                alt={product.name}
+                            />
                         </div>
 
                         <div>
@@ -71,7 +75,7 @@ const ProductDetail = () => {
                                                 />
                                                 <div className="p-2 text-center">
                                                     <h3 className="text-sm font-semibold">{item.name}</h3>
-                                                    <p className="text-green-600 font-bold text-sm">${item.price}</p>
+                                                    <p className="text-green-600 font-bold text-sm">{item.price} dhs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -104,7 +108,6 @@ const ProductDetail = () => {
 
                         <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
                             {product.description}
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit...
                         </p>
 
                         <div className="mt-6 flex items-center gap-4">
