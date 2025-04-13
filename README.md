@@ -34,8 +34,8 @@
 
 **Website:**
 - http://localhost:3000/
-  **Pages:**
-
+**Pages:**
+  
 - Home page
 - Product Listing Page (PLP)
 - Product Detail Page (PDP)
