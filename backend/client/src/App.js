@@ -16,6 +16,7 @@ import "./App.css";
 import CustomItemContext from "./context/ItemContext";
 import AccountInfo from "./components/AccountInfo";
 import ProductDetail from "./components/ProductDetail";
+import CartPage from "./components/CartPage";
 
 const App = () => {
 	return (
@@ -56,6 +57,7 @@ const App = () => {
 						<div className="container mx-auto"><AccountInfo /></div>
 					} />
 					<Route path="/product/:id" element={<ProductDetail />} />
+					<Route path="/cart" element={<div className="container mx-auto"><CartPage /></div>} />
 				</Routes>
 				<Footer />
 			</Router>

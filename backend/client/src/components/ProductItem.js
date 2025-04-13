@@ -8,8 +8,7 @@ const ProductItem = ({ product }) => {
 
 	const isInWishlist = wishlist.some((item) => item._id === product._id);
 	const handleAddToCart = (product) => {
-		addToCart(product)
-
+		addToCart(product);
 	};
 
 	const handleToggleWishlist = (product) => {

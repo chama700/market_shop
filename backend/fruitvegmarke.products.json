@@ -7,9 +7,9 @@
   "description": "Fresh and crispy",
   "price": 15,
   "image": "/images/apple.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -22,9 +22,9 @@
   "description": "Rich in potassium",
   "price": 15,
   "image": "/images/banana.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -37,9 +37,9 @@
   "description": "Packed with vitamin C",
   "price": 20,
   "image": "/images/orange.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -52,9 +52,9 @@
   "description": "Healthy and crunchy",
   "price": 8,
   "image": "/images/carrot.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -67,9 +67,9 @@
   "description": "Nutrient-rich greens",
   "price": 25,
   "image": "/images/brocoli.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -82,9 +82,9 @@
   "description": "Sweet and juicy",
   "price": 30,
   "image": "/images/grapes.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -97,9 +97,9 @@
   "description": "Delicious red berries",
   "price": 30,
   "image": "/images/strawberry.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -112,9 +112,9 @@
   "description": "Crisp and fresh",
   "price": 20,
   "image": "/images/lettue.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -127,9 +127,9 @@
   "description": "Versatile and flavorful",
   "price": 7,
   "image": "/images/tomato.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -142,9 +142,9 @@
   "description": "Cool and hydrating",
   "price": 13,
   "image": "/images/cocumber.jpg",
-  "origine": "Maroc",
+  "origin": "Morocco",
   "Ferme": "Jnane lalla Yamna",
-  "Conservation": "température ambiante",
+  "Conservation": "Ambient temperature",
   "stock": 120,
   "__v": 0
 },
@@ -157,7 +157,8 @@
   "description": "Sweet and tropical",
   "price": 22,
   "image": "/images/mongo.jpeg",
-  "origine": "Inde orientale,",
+  "origin": "Inde orientale,",
+  "Conservation": "Ambient temperature",
   "stock": 200
 },
 {
@@ -167,8 +168,11 @@
   "name": "Pineapple",
   "type": "Fruit",
   "description": "Tropical and tangy",
-  "price": 280,
-  "image": "/images/Pineapple.jpg"
+  "price": 50,
+  "image": "/images/Pineapple.jpg",
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 300
 },
 {
   "_id": {
@@ -177,11 +181,11 @@
   "name": "Peach",
   "type": "Fruit",
   "description": "Soft and juicy",
-  "price": 190,
+  "price": 30,
   "image": "/images/Peach.webp",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 300
 },
 {
   "_id": {
@@ -190,11 +194,11 @@
   "name": "Watermelon",
   "type": "Fruit",
   "description": "Refreshing summer fruit",
-  "price": 300,
+  "price": 30,
   "image": "/images/Watermelon.webp",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 300
 },
 {
   "_id": {
@@ -203,11 +207,11 @@
   "name": "Cherry",
   "type": "Fruit",
   "description": "Small and sweet",
-  "price": 260,
+  "price": 26,
   "image": "/images/cherry.webp",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 200
 },
 {
   "_id": {
@@ -216,11 +220,11 @@
   "name": "Spinach",
   "type": "Vegetable",
   "description": "Leafy and nutritious",
-  "price": 90,
+  "price": 40,
   "image": "/images/Spinach.webp",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 600
 },
 {
   "_id": {
@@ -229,11 +233,11 @@
   "name": "Potato",
   "type": "Vegetable",
   "description": "Staple and versatile",
-  "price": 110,
+  "price": 11,
   "image": "/images/Potato.jpg",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 700
 },
 {
   "_id": {
@@ -242,11 +246,11 @@
   "name": "Onion",
   "type": "Vegetable",
   "description": "Essential kitchen ingredient",
-  "price": 85,
+  "price": 35,
   "image": "/images/Onion.jpg",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 400
 },
 {
   "_id": {
@@ -255,11 +259,11 @@
   "name": "Bell Pepper",
   "type": "Vegetable",
   "description": "Colorful and crunchy",
-  "price": 150,
+  "price": 15,
   "image": "/images/Bell-Pepper.jpg",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 100
 },
 {
   "_id": {
@@ -268,9 +272,9 @@
   "name": "Eggplant",
   "type": "Vegetable",
   "description": "Soft and spongy",
-  "price": 140,
+  "price": 17,
   "image": "/images/Eggplant.jpg",
-  "origine": "Maroc",
-  "Conservation": "température ambiante",
-  "stock": 120
+  "origin": "Morocco",
+  "Conservation": "Ambient temperature",
+  "stock": 300
 }]

@@ -75,10 +75,32 @@ function CustomItemContext({ children }) {
 		setTotalPrice((prevTotal) => prevTotal + price * quantity);
 		setItemsInCart((prevItems) => prevItems + quantity);
 	};
+	const removeFromCart = (product) => {
+		setCart(prev =>
+			prev.map(item =>
+				item._id === product._id ? { ...item, quantity: item.quantity - 1 } : item
+			).filter(item => item.quantity > 0)
+		);
 
+		setTotalPrice(prev => prev - product.price);
+		setItemsInCart(prev => prev - 1);
+	};
+
+	const deleteFromCart = (product) => {
+		setCart(prev => prev.filter(item => item._id !== product._id));
+
+		setTotalPrice(prev => prev - product.price * product.quantity);
+		setItemsInCart(prev => prev - product.quantity);
+	};
+
+	const clearCart = () => {
+		setCart([]);
+		setTotalPrice(0);
+		setItemsInCart(0);
+	};
 	return (
 		<itemContext.Provider value={{
-			products, addToCart, itemsInCart, totalPrice, cart, wishlist, toggleWishlist, removeFromWishlist
+			products, addToCart,removeFromCart,deleteFromCart,clearCart, itemsInCart, totalPrice, cart, wishlist, toggleWishlist, removeFromWishlist
 		}}>
 			{children}
 		</itemContext.Provider>
