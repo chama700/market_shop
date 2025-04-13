@@ -35,12 +35,21 @@
 **Website:**
 - http://localhost:3000/
   **Pages:**
-- newsletter : error + success + mongodb
-- contact page : error + success + mongodb
-- Product Listing Page
-- Wishlist page
+
 - Home page
-- not found page
+- Product Listing Page (PLP)
+- Product Detail Page (PDP)
+- Cart Page
+- Checkout Page
+- Success Page (order confirmation)
+- Login & Register Page
+- User Information Page
+- Wishlist page
+- Newsletter : error popup + success popup + mongodb form save
+- Contact Page : error popup + success popup + mongodb form save
+- Not Found Page
+- Header
+- Footer
 
 *****
 **Database:**
