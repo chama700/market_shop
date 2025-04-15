@@ -1,14 +1,18 @@
-**Market Shop**
+# 🥦 Fruit And Vegetable Market Shop 🥦
+*****
 
-**Author:** Chaymae Belamkadem
+👩‍💻 **Author:** Chaymae Belamkadem
 
 *****
-**Steps:**
+![Screenshot](screenshots/img.png)
+
+*****
+## 🚀 Steps:
 
 - `git clone https://github.com/chama700/market_shop.git market_shop`
 
 *****
-**Backend:**
+🛠️ **Backend:**
 
 - `cd market_shop/backend`
   
@@ -17,7 +21,7 @@
 - `node server.js`
 
 *****
-**Frontend:**
+🎨 **Frontend:**
 
 - `cd market_shop/backend/client`
 
@@ -33,26 +37,86 @@
 - npm install bcryptjs
 - npm install @emotion/react @emotion/styled
 
-**Website:**
+🌐 **Website:**
 - http://localhost:3000
-  
-**Pages:**
+
+📄 **Pages:**
   
 - Home page
+*****
+  ![Screenshot](screenshots/home-page.png)
+*****
 - Product Listing Page (PLP)
+*****
+![Screenshot](screenshots/Listing-Page-V2.png)
+*****
 - Product Detail Page (PDP)
+*****
+![Screenshot](screenshots/detail-product.png)
+*****
 - Cart Page
-- Checkout Page
-- Success Page (order confirmation)
-- Login & Register Page
+*****
+![Screenshot](screenshots/cart.png)
+*****
+- 🛒 Checkout Page
+*****
+![Screenshot](screenshots/checkout.png)
+*****
+- 🎉 Success Page (order confirmation)
+*****
+![Screenshot](screenshots/order-success.png)
+*****
+- 🔐 Login Page
+*****
+![Screenshot](screenshots/login.png)
+*****
+- Register Page
+*****
+![Screenshot](screenshots/register.png)
+*****
 - User Information Page
-- Wishlist page
-- Newsletter : error popup + success popup + mongodb form save
-- Contact Page : error popup + success popup + mongodb form save
-- Not Found Page
+*****
+![Screenshot](screenshots/account-info.png)
+*****
+- ⭐ Wishlist page
+*****
+![Screenshot](screenshots/wishlist.png)
+*****
+- 📝 Newsletter : error popup + success popup + mongodb form save
+*****
+![Screenshot](screenshots/newslettererror.png)
+*****
+*****
+![Screenshot](screenshots/newslettersuccess.png)
+*****
+*****
+![Screenshot](screenshots/newsletter-mongoDB.png)
+*****
+- 📞 Contact Page : error popup + success popup + mongodb form save
+*****
+![Screenshot](screenshots/contact-error.png)
+*****
+*****
+![Screenshot](screenshots/contact-success.png)
+*****
+*****
+![Screenshot](screenshots/contact-mongoDB.png)
+*****
+- ❌ Not Found Page
+*****
+![Screenshot](screenshots/not-found-page.png)
+*****
 - Header
+*****
+![Screenshot](screenshots/header.png)
+*****
 - Footer
+*****
+![Screenshot](screenshots/footer.png)
+*****
 
+*****
+![Screenshot](screenshots/overview.webm)
 *****
 **Database:**
 
