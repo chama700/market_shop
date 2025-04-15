@@ -31,6 +31,7 @@
 - npm install axios
 - npm install jsonwebtoken
 - npm install bcryptjs
+- npm install @emotion/react @emotion/styled
 
 **Website:**
 - http://localhost:3000
