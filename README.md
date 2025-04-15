@@ -1,5 +1,4 @@
 # 🥦 Fruit And Vegetable Market Shop 🥦
-*****
 
 👩‍💻 **Author:** Chaymae Belamkadem
 
@@ -36,12 +35,11 @@
 - npm install jsonwebtoken
 - npm install bcryptjs
 - npm install @emotion/react @emotion/styled
-
+*****
 🌐 **Website:**
 - http://localhost:3000
-
+*****
 📄 **Pages:**
-  
 - Home page
 *****
   ![Screenshot](screenshots/home-page.png)
@@ -86,9 +84,7 @@
 *****
 ![Screenshot](screenshots/newslettererror.png)
 *****
-*****
 ![Screenshot](screenshots/newslettersuccess.png)
-*****
 *****
 ![Screenshot](screenshots/newsletter-mongoDB.png)
 *****
@@ -96,9 +92,7 @@
 *****
 ![Screenshot](screenshots/contact-error.png)
 *****
-*****
 ![Screenshot](screenshots/contact-success.png)
-*****
 *****
 ![Screenshot](screenshots/contact-mongoDB.png)
 *****
@@ -113,10 +107,6 @@
 - Footer
 *****
 ![Screenshot](screenshots/footer.png)
-*****
-
-*****
-![Screenshot](screenshots/overview.webm)
 *****
 **Database:**
 
