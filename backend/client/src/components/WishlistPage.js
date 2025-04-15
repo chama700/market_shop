@@ -49,7 +49,7 @@ const WishlistPage = () => {
                                     <span className="text-gray-500">{item.description}</span>
                                 </td>
                                 <td className="p-4">
-                                    <h3 className="text-lg font-semibold text-green-600">${item.price}</h3>
+                                    <h3 className="text-lg font-semibold text-green-600">{item.price} dhs</h3>
                                 </td>
                                 <td className="p-4 pr-8 text-center">
                                     <a href="#" className="text-red-500 hover:text-red-700 flex justify-end"
